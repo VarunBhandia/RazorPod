@@ -4,7 +4,7 @@ console.log("content script running")
 
 const NEWUSERURL = "https://www.amazon.com/gp/yourstore/home?ie=UTF8&ref_=nav_custrec_newcust&claim_type=EmailAddress&new_account=1&"
 const NEWUSERURL2 = "https://www.amazon.com/gp/yourstore/home?ie=UTF8&ref_=nav_custrec_newcust&captcha_verified=1&claim_type=EmailAddress&new_account=1&"
-const SKILL1URL = "https://www.amazon.com/RamThreeBhandia-Silt-Trivia/dp/B07KP6CY37/ref=sr_1_1?ie=UTF8&qid=1544182994&sr=8-1&keywords=silt+trivia+bhandia"
+const SKILL1URL = "https://www.amazon.com/RamFourBhandia-Sand-Trivia/dp/B07KP6GFVM/ref=sr_1_1?ie=UTF8&qid=1544688191&sr=8-1&keywords=sand+trivia+bhandia"
 //const SKILL2URL = "https://www.amazon.com/BhandiaVarun-duster-trivia/dp/B07JH22KZH/ref=sr_1_1?ie=UTF8&qid=1540568378&sr=8-1&keywords=duster+trivia"
 const ALEXAWEBURL = "https://alexaweb.herokuapp.com/start";
 const AMNZREG = "https://www.amazon.com/ap/register?_encoding=UTF8&openid.assoc_handle=usflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fyourstore%2Fhome%3Fie%3DUTF8%26ref_%3Dnav_custrec_newcust"
@@ -1027,7 +1027,7 @@ function lname(){
 function generateEmail(fname, lname){
 	let domains = ["gmail.com", "yahoo.com", "outlook.com", "gmail.com", "protonmail.com"];
 	let domain = domains[Math.floor(Math.random()*5)];
-	let prefixes = ["supercool", "hotstar", "angel", "angelpriya", "angelpulkit", "prince"];
+	let prefixes = ["supercool1", "hotstar1", "angel1", "angelpriya1", "angelpulkit1", "prince1"];
 	let prefix = prefixes[Math.floor(Math.random()*6)];	
 	let usernames = [fname+lname, fname+"007", lname+"787", fname+"111", lname+"7",fname+"37", lname+"73",lname.substring(0,1)+fname, fname+"."+lname];
 	let username = usernames[Math.floor(Math.random()*usernames.length)];

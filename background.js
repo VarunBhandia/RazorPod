@@ -1,6 +1,6 @@
 console.log("running in bg");
 
-const URL1 = "https://www.amazon.com/RamThreeBhandia-Silt-Trivia/dp/B07KP6CY37/ref=sr_1_1?ie=UTF8&qid=1544182994&sr=8-1&keywords=silt+trivia+bhandia"
+const URL1 = "https://www.amazon.com/RamFourBhandia-Sand-Trivia/dp/B07KP6GFVM/ref=sr_1_1?ie=UTF8&qid=1544688191&sr=8-1&keywords=sand+trivia+bhandia"
 //const URL2 = "https://www.amazon.com/BhandiaVarun-duster-trivia/dp/B07JH22KZH/ref=sr_1_1?ie=UTF8&qid=1540568378&sr=8-1&keywords=duster+trivia"
 const ALEXAWEBURL = "https://alexaweb.herokuapp.com/start"
 chrome.browserAction.onClicked.addListener(buttonClicked);
