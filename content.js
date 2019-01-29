@@ -1,21 +1,44 @@
-console.log("Email Creator content script running");
-const BASEURL = "https://parser.zapier.com/mailboxes/";
+console.log("Internship Task content script running");
+let BASEURL = "https://www.amazon.in/s/?field-keywords=mobiles&page=";
 
-console.log(location.href.substring(0,35));
+console.log(location.href.substring(0, 53));
+if (location.href.substring(0, 53) == BASEURL) {
 
-if (location.href.substring(45,49) === "wait" )
-{
-  document.getElementsByTagName("a")[6].click();
+  var E_PRICE = document.getElementsByClassName("a-size-base a-color-price s-price a-text-bold");
+  var E_NAME = document.getElementsByClassName("a-size-medium s-inline  s-access-title  a-text-normal");
+
+  for (var i = 0, len = E_PRICE.length - 1; i < len; i++) {
+
+    if (E_NAME[i]) {
+      let data1 = "NAME = " + E_NAME[i].innerText;
+      let data2 = "   PRICE = " + E_PRICE[i].innerText;
+
+      let data = data1 + data2;
+
+      console.log(data);
+    }
   }
 
-if (location.href === BASEURL )
-{
-  document.getElementsByClassName("retreat-button retreat-button-primary")[0].click();
-}
+  // function WriteToFile() {
 
-if (location.href.substring(0,36) === BASEURL &&  location.href.substring(36,39) != '' && location.href.substring(45,49) != "wait" )
-{
-  console.log("Running");
+  //   let fso = CreateObject("Scripting.FileSystemObject");  
+  //   let s = fso.CreateTextFile("/home/moss/Desktop/EmailCreater/test.txt", True);
+  //   s.writeline("HI");
+  //   s.writeline("Bye");
+  //   s.writeline("-----------------------------");
+  //   s.Close();
+  // }
 
-  document.getElementsByClassName("retreat-button retreat-button-primary")[0].click();
+  WriteToFile();
+
+  var urlParams = new URLSearchParams(window.location.href);
+  let PAGE = parseInt(urlParams.get('page'));
+  if (PAGE < 20) {
+    PAGE = PAGE + 1;
+    console.log("PAGE = " + PAGE);
+    BASEURL = "https://www.amazon.in/s/?field-keywords=mobiles&page=" + PAGE;
+    console.log(BASEURL);
+    window.location.href = BASEURL;
+  }
+
 }
