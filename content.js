@@ -22,11 +22,9 @@ if (location.href.substring(0, 53) == BASEURL) {
             let data = {
                 name: name,
                 price: price
-                
+
             };
             chrome.runtime.sendMessage({ data: data })
-
-            // console.log(data);
         }
 
     }
@@ -36,6 +34,8 @@ if (location.href.substring(0, 53) == BASEURL) {
     // to get the current  page number
     var urlParams = new URLSearchParams(window.location.href);
     let PAGE = parseInt(urlParams.get('page'));
+
+    chrome.runtime.sendMessage({ page: PAGE })
 
     // define your maximum limit
     let MAX_LIMIT = 20;
