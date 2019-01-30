@@ -1,12 +1,15 @@
 console.log("Internship Task content script running");
-let BASEURL = "https://www.amazon.in/s/?field-keywords=mobiles&page=";
 
-console.log(location.href.substring(0, 53));
+// write your keywork here
+let KEYWORD = 'mobiles';
+
+// URL that I will change
+let BASEURL = "https://www.amazon.in/s/?field-keywords=" + KEYWORD + "&page=";
+
 if (location.href.substring(0, 53) == BASEURL) {
-
   var E_PRICE = document.getElementsByClassName("a-size-base a-color-price s-price a-text-bold");
   var E_NAME = document.getElementsByClassName("a-size-medium s-inline  s-access-title  a-text-normal");
-
+  // traverse the page and will collect information of products
   for (var i = 0, len = E_PRICE.length - 1; i < len; i++) {
 
     if (E_NAME[i]) {
@@ -15,29 +18,23 @@ if (location.href.substring(0, 53) == BASEURL) {
 
       let data = data1 + data2;
 
-      console.log(data);
+      // console.log(data);
+
+      chrome.runtime.sendMessage({data: data});
     }
   }
 
-  // function WriteToFile() {
+  // this will change the URL and will traverse the <MAX_LIMIT> pages 
 
-  //   let fso = CreateObject("Scripting.FileSystemObject");  
-  //   let s = fso.CreateTextFile("/home/moss/Desktop/EmailCreater/test.txt", True);
-  //   s.writeline("HI");
-  //   s.writeline("Bye");
-  //   s.writeline("-----------------------------");
-  //   s.Close();
-  // }
-
-  WriteToFile();
-
+  // to get the current  page number
   var urlParams = new URLSearchParams(window.location.href);
   let PAGE = parseInt(urlParams.get('page'));
-  if (PAGE < 20) {
+
+  // define your maximum limit
+  let MAX_LIMIT = 20;
+  if (PAGE < MAX_LIMIT) {
     PAGE = PAGE + 1;
-    console.log("PAGE = " + PAGE);
-    BASEURL = "https://www.amazon.in/s/?field-keywords=mobiles&page=" + PAGE;
-    console.log(BASEURL);
+    BASEURL = "https://www.amazon.in/s/?field-keywords=" + KEYWORD + "&page=" + PAGE;
     window.location.href = BASEURL;
   }
 
